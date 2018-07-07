@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小姐姐</title>
+    <style>
+        #d1 {
+            float: left;
+            position: relative;
+            left: 15%;
+            width: 1000px;
+            height: 600px;
+            background-color: rgb(241, 235, 235);
+            border: 1px solid black;
+            border-radius: 2%;
+            margin-top: 2%;
+        }
+
+        #p1 {
+            display: table;
+            margin-top: 10%;
+            margin-left: 32%;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        button {
+            width: 100px;
+            height: 40px;
+            font-size: 100%;
+            /* border-radius: 2%; */
+        }
+
+        #b1 {
+            position: absolute;
+            left: 30%;
+            top: 50%;
+        }
+
+        #b2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+
+        body {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+        <p id="p1">
+            小姐姐你喜欢我吗？
+        </p>
+        <button id="b1">喜欢</button>
+        <button id="b2">不喜欢</button>
+    </div>
+    <script>
+        var x1 = document.getElementById("d1").clientWidth;
+        var y1 = document.getElementById("d1").clientHeight;
+        // var x = document.getElementById("d1").scrollWidth;
+        // var y = document.getElementById("d1").scrollHeight;
+        var buttons = document.getElementsByTagName("button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onmouseover = handleMouseover;
+            buttons[i].onclick = handleClick;
+        }
+        function handleClick(e) {
+            if (e.target.id == "b1") {
+                alert("对不起，我是你永远也得不到的男人！");
+            }
+            else if (e.target.id == "b2") {
+                alert("哎呀！点到了!");
+            }
+        }
+
+        function handleMouseover(e) {
+            if (e.target.id == "b1") {
+                e.target.title = "快点我啊！";
+            }
+            else if (e.target.id == "b2") {
+                var doc = document.getElementById("b2");
+
+                // document.getElementById("p1").innerHTML += "<br>" + x1;
+                // document.getElementById("p1").innerHTML += "<br>" + y1;
+                // document.getElementById("p1").innerHTML += "<br>" + x;
+                // document.getElementById("p1").innerHTML += "<br>" + y;
+                e.target.style.left = Math.random() * (x1 - doc.offsetWidth) + "px";
+                e.target.style.top = Math.random() * (y1 - doc.offsetHeight) + "px";
+
+                /*测试按钮位置*/
+                // e.target.style.left = 1000 - 100 + "px";
+                // e.target.style.top = 600 - 40 + "px";
+
+                /*查看获取高度宽度 边框值*/
+                // alert(document.getElementById("b2").offsetHeight);
+                // alert(doc.offsetWidth);
+
+                /*测试按钮边框取值*/
+                // e.target.style.left = 1000 - doc.offsetWidth + "px";
+                // e.target.style.top = 600 - doc.offsetHeight + "px";
+
+                /*测试随机位置仍在鼠标所指位置*/
+                // e.target.style.left = Math.random() * 100 - doc.offsetWidth + "px";
+                // e.target.style.top = Math.random() * 60 - doc.offsetHeight + "px";
+            }
+        }
+    </script>
+</body>
+
+</html>

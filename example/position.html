@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Position地理定位</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        th,
+        td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>
+                Longitude:
+            </th>
+            <td id="longitude">
+                -----
+            </td>
+            <th>
+                Latitude:
+            </th>
+            <td id="latitude">
+                -----
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Altitude:
+            </th>
+            <td id="alitude">
+                -----
+            </td>
+            <th>
+                Accuracy:
+            </th>
+            <td id="accuracy">
+                -----
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Altitude Accuracy:
+            </th>
+            <td id="alitudeAccuracy">
+                -----
+            </td>
+            <th>
+                Heading:
+            </th>
+            <td id="heading">
+                -----
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Speed:
+            </th>
+            <td id="speed">
+                -----
+            </td>
+            <th>
+                Timestamp:
+            </th>
+            <td id="timestamp">
+                -----
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Errcode:
+            </th>
+            <td id="errcode">
+                -----
+            </td>
+            <th>
+                Errmessage:
+            </th>
+            <td id="errmsg">
+                -----
+            </td>
+        </tr>
+    </table>
+    <script>
+        var na = navigator.geolocation;
+        if (na) {
+            var options = {
+                enableHighAccuracy: false,
+                timeout: 2000,
+                maximumAge: 30000
+            };
+            na.getCurrentPosition(displayPosition, posError, options);
+            function displayPosition(pos) {
+                var properties = ["longtitude", "latitude", "altitude", "accuracy", "altitudeAccuracy", "heading", "speed"];
+                for (var i = 0; i < properties.length; i++) {
+                    var value = pos.coords[properties[i]];
+                    document.getElementById(properties[i]).innerHTML = value;
+                }
+                document.getElementById("timstamp").innerHTML = pos.timestamp;
+            }
+            function posError(err) {
+                document.getElementById("errcode").innerHTML = err.code;
+                document.getElementById("errmsg").innerHTML = err.message;
+            }
+        }
+        else {
+            alert("liulanqibuzhichi");
+        }
+    </script>
+</body>
+
+</html>
