@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+#newBox {
+    box-sizing: border-box;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid lightseagreen
+}
+#newBox li {
+    line-height: 50px;
+    border-bottom: 1px dashed lightsalmon
+}
+
+#newBox li:nth-last-child(1) {
+    border-bottom: none;
+}
+
+#newBox li:nth-child(even) {
+    background-color: lightseagreen;
+}
+
+#newBox li:hover {
+    background-color: lightslategrey;
+}

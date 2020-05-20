@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box {
+    box-sizing: border-box;
+    margin: 20px auto;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    border: 1px solid lightcoral;
+}
+
+.box .detail {
+    z-index: -1;
+    position: absolute;
+    display: none;
+    width: 500px;
+    height: 80px;
+    line-height: 80px;
+    text-align: left;
+    left: -1px;
+    top: 38px;
+    font-size: larger;
+    border: 1px solid lightcoral;
+}
+
+.box:hover .detail {
+    display: block;
+}
+
+.box:hover {
+    border-bottom-color: #ffffff;
+}
